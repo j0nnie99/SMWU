@@ -25,3 +25,17 @@ var(exam$history)
 hist(exam$math, breaks = seq(0, 100, by = 5)) #exam의 math에 대한 히스토그램. 최솟값 0, 최댓값 100, 간격 5
 hist(exam$history, breaks = seq(0, 100, by = 5))
 hist(exam$english, breaks = seq(0, 100, by = 5)) 
+
+###table함수와 qplot함수를 통한 빈도수 확인하기
+table(exam$address)
+table(exam$gender)
+table(exam$class)
+table(exam$address, exam$gender)
+table(exam$class, exam$address)
+
+install.packages("ggplot2")
+install.packages("ggplot2", dependencies = TRUE)
+library(ggplot2)
+qplot(data = exam, address, fill = gender)
+install.packages("farver", dependencies=T) #39번줄 실행 안 돼서 추가 설치함 (Error in loadNamespace(x) : there is no package called ‘farver’)
+qplot(data = exam, class, fill = address)
