@@ -9,14 +9,16 @@ theme_set(theme_grey(base_family="AppleGothic"))
 #히스토그램 한글 깨짐 문제 해결
 par(family="AppleGothic")
 
-
+#요일을 한글로 설정하기 위해 시스템을 한글로 세팅
+Sys.setlocale("LC_ALL", "ko_KR.UTF-8")
 
 #1. weather.csv를 불러와서 weather 데이터 프레임 만들기
 weather <- read.csv("weather.csv", stringsAsFactors = F, fileEncoding = "euc-kr")
 
 
 #2. 측정 척도가 문자인 변수는 무엇인가?
-### 요일 구분
+str(weather)
+### 일시, 요일.구분
 
 #3. '일시' 변수에 대해 측정 척도를 문자에서 날짜(date)로, '요일 구분'에 대해 범주(factor)로 바꾸시오
 ## 힌트 요일로 변경 - df$var <- as.Date(df$var) /범주로 변경 - df$var <- as.factor(df$var)
@@ -36,13 +38,21 @@ summary(weather)
 
 
 #6. ‘일강수량’ 변수에 대해 분산을 구해 보시오.
+weather$일강수량[is.na(weather$일강수량)] <- 0
+summary(weather)
 var(weather$일강수량)
 ###[1] NA 이라고 출력되는데 이게 맞나?
+###na -> 0 으로 변경해서 [1] 213.3963 결과값 얻어냄
+
+#교수님 답 (아예 결측치 제거)
+var(weather$일강수량, na.rm = T)
 
 
 #7. 요일과 요일.구분에 대해 빈도수를 각각 구하시오.
+##요일의 경우, 가나다 순서대로 된 정렬을 요일별로 바꿀 수는 없을까?
 table(weather$요일)
 table(weather$요일.구분)
+weather$요일 <- factor(weather$요일, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 #8. 요일과 요일.구분을 동시에 고려한 qplot을 그려 보시오.
 library(ggplot2) #ggplot2 라이브러리 불러오기
