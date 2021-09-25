@@ -64,3 +64,15 @@ qplot(data = weather, 요일, fill = 요일.구분)
 hist(weather$평균기온, breaks = seq(-20, 50, by = 1))
 hist(weather$평균.상대습도, breaks = seq(0, 100, by = 1))
 
+
+
+#기술통계량 관련 추가
+install.packages("pastecs")
+library(pastecs)
+stat.desc(exam$math)
+
+install.packages("psych")
+library(psych)
+describe(exam$math)
+
+###exam addition
