@@ -39,3 +39,14 @@ library(ggplot2)
 qplot(data = exam, address, fill = gender)
 install.packages("farver", dependencies=T) #39번줄 실행 안 돼서 추가 설치함 (Error in loadNamespace(x) : there is no package called ‘farver’)
 qplot(data = exam, class, fill = address)
+
+
+###excel 파일 불러오기
+install.packages("readxl")
+library(readxl)
+
+exam_addition <- read_excel("exam_addition.xlsx", sheet = 1)
+exam_addition$id <- NULL #id 변수 지워주기
+
+###데이터 프레임 내보내기
+write.csv(exam, file="exam1.csv")

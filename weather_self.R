@@ -74,5 +74,3 @@ stat.desc(exam$math)
 install.packages("psych")
 library(psych)
 describe(exam$math)
-
-###exam addition
