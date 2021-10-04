@@ -52,7 +52,8 @@ var(weather$일강수량, na.rm = T)
 ##요일의 경우, 가나다 순서대로 된 정렬을 요일별로 바꿀 수는 없을까?
 table(weather$요일)
 table(weather$요일.구분)
-weather$요일 <- factor(weather$요일, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
+weather$요일 <- factor(weather$요일, levels = c("월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"))
+#weather$요일 <- factor(weather$요일, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 #8. 요일과 요일.구분을 동시에 고려한 qplot을 그려 보시오.
 library(ggplot2) #ggplot2 라이브러리 불러오기
@@ -74,3 +75,54 @@ stat.desc(exam$math)
 install.packages("psych")
 library(psych)
 describe(exam$math)
+
+
+
+#######추가예제1#######
+
+## 1. 평균기온이 27도 이상인 날이 몇 일인가?
+table(weather$평균기온 >= 27)
+## 2. 평균기온이 10도 이상이고, 20도 이하인 날이 몇 일인가?
+table(weather$평균기온 >= 10 & weather$평균기온 <= 20)
+## 3. 일강수량이 0인 날은 얼마나 되는가?
+table(weather$일강수량 == 0)
+
+## 4. 일강수량 변수의 측정값이 NA(결측치)인 날은 얼마나 되는가?
+table(is.na(weather$일강수량))
+table(!is.na(weather$일강수량))
+#summary(weather$일강수량)
+
+## 5. 월요일, 화요일, 수요일은 몇 일인가?
+table(weather$요일 %in% c("월요일","화요일","수요일"))
+## 6. 최고기온이 30도 보다 높고, 평균.상대습도는 80보다 높은 날은 몇 일인가?
+table(weather$최고기온 > 30 & weather$평균.상대습도 > 80)
+## 7. 최저기온이 -10도보다 낮거나, 합계.일조시간이 1시간 미만인 날은 몇 일인가?
+table(weather$최저기온 < -10 | weather$합계.일조시간 < 1)
+
+#######추가예제2#######
+weather_new <- weather
+library(dplyr)
+#8. 요일.구분은 요일구분으로, 평균.현지기압은 평균기압으로 변수명을 바꾸시오
+weather_new <- rename(weather_new, 요일구분 = 요일.구분, 평균기압=평균.현지기압)
+
+#9. 새로운 변수 요일구분과 관련해서 출력 순서를 기존의 평일-휴일에서, 휴일-평일로 변경하시오
+table(weather_new$요일구분)
+weather_new$요일구분 <- factor(weather_new$요일구분, levels = c("휴일", "평일"))
+
+#10. 일강수량이 0으로 측정되는 경우 이 값을 NA로 바꾸시오
+weather_new$일강수량 <- ifelse(weather_new$일강수량 == 0, NA, weather_new$일강수량)
+
+#11. 평균기압에 대한 결측치는 몇 개인가?
+table(is.na(weather_new$평균기압))
+
+#12. 결측치를 제외한 평균기압 평균은 얼마인가? (유효숫자 소수 둘째자리)
+#m <- mean(weather_new$평균기압, na.rm = T)
+m <- round(mean(weather_new$평균기압, na.rm = T), digits=2)
+#13. 평균기압이 NA인 경우, 이를 문제 12에서 구한 평균값으로 대체하시오
+#내 코드
+weather_new$평균기압 <- ifelse(weather_new$평균기압 == NA, m, weather_new$평균기압)
+#교수님 코드(13번)
+weather_new$평균기압 <- ifelse(is.na(weather_new$평균기압), m, weather_new$평균기압)
+
+#12번 + 13번
+weather_new$평균기압 <- ifelse(is.na(weather_new$평균기압), round(mean(weather_new$평균기압, na.rm = T), digits=2), weather_new$평균기압)
