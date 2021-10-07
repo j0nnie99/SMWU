@@ -55,3 +55,15 @@ mpg_cc <- mpg %>% select(class, city)
 mpg_ccSUV <- mpg_cc %>% filter(class == "suv")
 mpg_ccCOM <- mpg_cc %>% filter(class == "compact")
 mean(mpg_ccSUV$city) > mean(mpg_ccCOM$city)
+
+
+
+### arrange 함수###
+
+exam %>% arrange(math)
+exam %>% arrange(-math)
+exam %>% arrange(class, -math)
+
+### 10. 아우디 모델 중에서 고속도로 연비가 가장 높은 상위 3개 모델은?
+mpg_audi %>% arrange(desc(highway))
+mpg %>% filter(manufacturer=="audi") %>% arrange(-highway) %>% head(3)
