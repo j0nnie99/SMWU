@@ -67,3 +67,11 @@ exam %>% arrange(class, -math)
 ### 10. 아우디 모델 중에서 고속도로 연비가 가장 높은 상위 3개 모델은?
 mpg_audi %>% arrange(desc(highway))
 mpg %>% filter(manufacturer=="audi") %>% arrange(-highway) %>% head(3)
+
+
+### mutate 함수 ###
+exam <- exam %>% mutate(total = math + english + history)
+exam <- exam %>% mutate(average = (math + english + history)/3)
+exam <- exam %>% mutate(total = math + english + history, average = (math + english + history)/3)
+
+exam$average <- round(exam$average, digits=2) #average값 소수점 자리수 조절
