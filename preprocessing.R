@@ -114,3 +114,11 @@ mpg %>% group_by(trans) %>% summarise(mean_displ = mean(displ)) %>% arrange(-mea
 
 ### 17. 4기통 모델을 가장 많이 생산하는 업체 세 곳을 순서대로 구하시오.
 mpg %>% group_by(manufacturer) %>% filter(cyl == 4) %>% summarise(count = n()) %>% arrange(-count) %>% head(3)
+
+
+
+### left_join 함수 ###
+
+vl <- c(1:30)
+exam <- exam %>% mutate(id=vl)
+exam <- exam %>% relocate(id, .before = address)
