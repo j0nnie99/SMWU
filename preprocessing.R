@@ -122,3 +122,86 @@ mpg %>% group_by(manufacturer) %>% filter(cyl == 4) %>% summarise(count = n()) %
 vl <- c(1:30)
 exam <- exam %>% mutate(id=vl)
 exam <- exam %>% relocate(id, .before = address)
+exam <- exam %>% relocate(english, .after = math)
+
+exam_science <- read.csv("exam_science.csv", stringsAsFactors = F)
+
+exam <- left_join(exam, exam_science, by="id")
+exam <- exam %>% relocate(Science, .before = total)
+
+
+### left_join 실습
+###연료별 가격 데이터 프레임(fuel_price) 만들기
+fuel_price <- data.frame(fuel=c("CNG","diesel","ethanol","premium","regular"),fuel_price = c(2.35,2.38,2.11,2.76,2.22))
+mpg <- left_join(mpg, fuel_price, by="fuel")
+
+### 19-1. 구동방식별 가격 데이터 프레임(drv_price) 만들기
+drv_price <- data.frame(driving=c(4,"forward","rear"), drv_price = c(40000, 30000, 50000))
+
+### 19-2. mpg와 drv_price 합치기
+mpg <- left_join(mpg, drv_price, by=c("drv"="driving"))
+### 20. fuel_price는 fuel 뒤로, drv_price는 city 앞으로 이동시키기
+mpg <- mpg %>% relocate(fuel_price, .after=fuel)
+mpg <- mpg %>% relocate(drv_price, .before = city)
+ 
+
+### bind_rows 함수 실습
+exam_add <- read.csv("exam_add.csv", stringsAsFactors = F, fileEncoding = "CP949", encoding = "UTF-8")
+
+#exam의 class는 범주형이고 exam_add의 class는 int형이어서 bind가 되지 않음. 아래 코드를 통해 class 자료형을 맞추어주는 것으로 해결
+exam_add$class <- as.factor(exam_add$class)
+exam <- bind_rows(exam, exam_add)
+
+exam <- exam %>% distinct(id, class, total, .keep_all = T)
+
+### 21. 통합된 exam 데이터 프레임에서 id=34는 id만 다를 뿐, id=29와 동일한 사례이므로 제거하시오.
+exam <- exam %>% distinct(class, address, total, .keep_all = T)
+
+### 22. average 변수 측정결과가 NA인 사례에 대해 세 과목에 대한 실제 평균값을 구해서 이 값으로 대체하시오.
+exam_new <- exam
+exam_new$average <- ifelse(is.na(exam_new$average), exam_new$total/3, exam_new$average)
+exam$average <- ifelse(is.na(exam$average), exam$total/3, exam$average)
+exam$average <- round(exam$average, digits=2)
+
+### 23. science 변수 측정결과가 NA인 사례에 대해 다른 사례들의 science 평균값으로 대체하시오.
+mean(exam$Science, na.rm = T)
+exam$Science <- ifelse(is.na(exam$Science), mean(exam$Science, na.rm = T), exam$Science)
+
+
+
+### midwest 데이터 프레임을 이용한 실습 ###
+
+### 1. ggplot2에서 midwest 데이터를 불러와서 같은 이름의 데이터 프레임을 만드시오.
+library(ggplot2)
+midwest <- midwest
+
+### 2. popadults는 해당 지역 성인인구, poptotal은 해당 지역 전체 인구를 의미한다. 지역별 '미성년 인구비율' 변수(percyouth)를 만드시오.
+midwest <- midwest %>% mutate(percyouth = 1- (midwest$popadults / midwest$poptotal))
+
+###3. percyouth가 제일 높은 다섯 개 지역(county)을 구하시오.
+midwest %>% select(county, percyouth) %>% arrange(-percyouth) %>% head(5)
+
+###4. 제시된 표를 참고하여 새로운 변수(group)를 만들고, 유형별 빈도를 구하시오.
+midwest <- midwest %>% mutate(group = ifelse(percyouth >= 40, "large", ifelse(percyouth >= 30, "middle", "small")))
+table(midwest$group)
+
+###5. midwest_add.csv를 같은 이름의 데이터 프레임으로 저장한 후, midwest와 miwest_add를 county 변수와 region 변수를 기준으로 통합하시오.
+midwest_add <- read.csv("midwest_add.csv", stringsAsFactors = F)
+midwest <- left_join(midwest, midwest_add, by = c("county" = "region"))
+
+###6. 통합 midwest 데이터 프레임에 중복 사례가 있다면 제거하시오.
+midwest <- midwest %>% distinct(PID, county, state, .keep_all = T)
+
+###7. 주(state)별로 senior 인구수 합계를 구하시오.
+table(midwest$state)
+midwest %>% group_by(state) %>% filter(!is.na(senior)) %>% summarise(sum_senior = sum(senior))
+
+###8. tidyr 패키지 설치 후, 결측치가 있는 사례 제거하기
+install.packages("tidyr")
+library(tidyr)
+table(is.na(midwest$senior))
+midwest <- midwest %>% drop_na()
+
+###9. 평균 아시아계 인구수가 가장 적은 category 세 개를 구하시오
+midwest %>% group_by(category) %>% summarise(mean_popasian = mean(popasian)) %>% arrange(mean_popasian) %>% head(3)
+midwest %>% select(inmetro:last_col())
