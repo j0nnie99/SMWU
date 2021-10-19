@@ -1,4 +1,4 @@
-### welfare 실습
+### welfare 실습 commit 전에 welfare sav 빼두기
 install.packages("foreign")
 library(foreign)
 library(dplyr)
