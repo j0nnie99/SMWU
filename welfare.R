@@ -71,6 +71,14 @@ title_income <- welfare7 %>% filter(!is.na(title) & !is.na(income)) %>% group_by
 title_income %>% arrange(-mean_income) %>% head(5)
 title_income %>% arrange(mean_income) %>% head(5)
 
+#ggplot2 한글 깨짐
+install.packages("extrafont")
+library(extrafont)
+font_import()
+library(ggplot2)
+theme_set(theme_grey(base_family="AppleGothic"))
+##
+
 title_income20 <- title_income %>% arrange(-mean_income) %>% head(20)
 library(ggplot2)
 ggplot(title_income20, aes(reorder(title, -mean_income), mean_income, fill = mean_income)) + geom_bar(stat = "identity") + theme(axis.text.x = element_text(size = 7.5, angle = 50))
@@ -90,6 +98,8 @@ region_list$region <- as.factor(region_list$region)
 welfare7 <- left_join(welfare7, region_list, by = "region")
 welfare7 <- welfare7 %>% relocate(region_name, .after = region)
 
+#잘못 입력한 column 삭제용 welfare7 <- select (welfare7,-c(region_name.x, region_name.y))
+
 welfare7 %>% group_by(region_name) %>% summarise(mean(age))
 table(welfare7$ageg)
 
@@ -97,7 +107,7 @@ welfare7 %>% group_by(region_name, ageg) %>% summarise(count = n()) %>% mutate(t
 welfare_7 %>% group_by(region_name, ageg) %>% summarise(count=n()) %>% mutate(rate=count/sum(count)) #지역내 방법2(방법1보다 나음)#
 welfare7 %>% group_by(region_name, ageg) %>% summarise(count = n(), rate = count / 16664) %>% print(n = 21)
 
-### 종합복습 ###
+### 종합복습 정답 ###
 #문제1#
 library(dplyr)
 welfare <- welfare %>% rename(education = h10_g6)
