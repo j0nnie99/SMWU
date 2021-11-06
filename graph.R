@@ -21,3 +21,37 @@ ggplot(mpg, aes(city, highway, color = cyl)) + geom_point(aes(shape = drv)) + xl
 
 ### midwest 실습문제
 ggplot(midwest, aes(poptotal, popasian, color = state)) + geom_point(aes(shape = state)) + xlim(0, 350000) + ylim(0, 5000) + geom_smooth()
+
+
+### 막대 그래프 그리기 ###
+library(dplyr)
+library(ggplot2)
+
+df_mpg <- mpg %>% group_by(drv) %>% summarise(mean_sum = mean(sum))
+ggplot(df_mpg, aes(drv, mean_sum)) + geom_bar(stat = "identity")
+ggplot(df_mpg, aes(reorder(drv, -mean_sum), mean_sum, fill = drv)) + geom_bar(stat = "identity")
+
+ggplot(mpg, aes(class)) + geom_bar()
+ggplot(mpg, aes(highway)) + geom_bar()
+ggplot(mpg, aes(class, fill=class)) + geom_bar()
+ggplot(mpg, aes(class, fill=class)) + geom_bar() + xlim(c("compact", "midsize", "suv"))
+
+ggplot(mpg, aes(class, fill=class)) + geom_bar() + coord_flip()
+ggplot(mpg, aes(class, fill=class)) + geom_bar() + coord_polar()
+
+ggplot(mpg, aes(class, fill=fuel)) + geom_bar()
+ggplot(mpg, aes(class, fill=fuel)) + geom_bar(position = "dodge")
+ggplot(mpg, aes(class, fill=fuel)) + geom_bar(position = "fill")
+
+# 막대 그래프 실습 문제 (self)
+df_suv <- mpg %>% group_by(manufacturer) %>% summarise(mean_city = mean(city))
+ggplot(df_suv, aes(reorder(manufacturer, -mean_city), mean_city, fill = manufacturer)) + geom_bar(stat = "identity") + coord_flip()
+
+# 막대 그래프 실습 문제 (교수님ver)
+mpg_suv <- mpg %>% group_by(manufacturer) %>% filter(class=="suv") %>% summarise(mean_city = mean(city)) %>% arrange(-mean_city) %>% head(5)
+ggplot(mpg_suv, aes(reorder(manufacturer, mean_city), mean_city, fill = manufacturer)) + geom_bar(stat = "identity") + coord_flip() + labs(title = "회사별 suv 도심연비 평균 비교", x = "제조사", y = "suv 도심연비 평균")
+
+
+### 히스토그램 그리기 ###
+ggplot(mpg, aes(highway)) + geom_histogram()
+ggplot(mpg, aes(highway)) + geom_histogram(binwidth = 1, fill = "yellow", color = "red") + labs(title = "고속도로연비 히스토그램", x = "고속도로연비", y = "빈도")
