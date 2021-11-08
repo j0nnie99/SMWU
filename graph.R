@@ -55,3 +55,41 @@ ggplot(mpg_suv, aes(reorder(manufacturer, mean_city), mean_city, fill = manufact
 ### 히스토그램 그리기 ###
 ggplot(mpg, aes(highway)) + geom_histogram()
 ggplot(mpg, aes(highway)) + geom_histogram(binwidth = 1, fill = "yellow", color = "red") + labs(title = "고속도로연비 히스토그램", x = "고속도로연비", y = "빈도")
+
+
+
+### 선 그래프 그리기 ###
+
+economics <- ggplot2::economics
+str(economics)
+
+ggplot(economics, aes(date, unemploy)) + geom_line()
+ggplot(economics, aes(date, unemploy)) + geom_line() + geom_point()
+ggplot(economics, aes(date, unemploy)) + geom_line(color = "red") + geom_point(color = "blue4")
+
+
+### 상자 그래프 그리기 ####
+ggplot(mpg, aes(drv, highway)) + geom_boxplot()
+ggplot(mpg, aes(drv, highway,, fill = drv)) + geom_boxplot()
+ggplot(mpg, aes(drv, highway,, fill = drv)) + geom_boxplot(outlier.color = "red") + stat_summary(fun = "mean", geom = "point")
+ 
+
+### 코로나19 그래프 그리기 ###
+corona19 <- read.csv("corona19.csv", stringsAsFactors = F)
+str(corona19)
+corona19$date <- as.Date(corona19$date)
+summary(corona19)
+
+ggplot(corona19, aes(new_tests, new_cases)) + geom_point() + xlim(10000, 60000) + ylim(0, 3000) + geom_smooth()
+ggplot(corona19, aes(date, new_cases, fill = new_cases)) + geom_bar(stat = "identity")
+
+ggplot(corona19, aes(date, new_cases)) + geom_line(color="red") + geom_point(color="blue")
+ggplot(corona19, aes(date, new_deaths)) + geom_line(color="red") + geom_point(color="blue")
+ggplot(corona19, aes(date, total_deaths)) + geom_line(color="red") + geom_point(color="blue")
+ggplot(corona19, aes(date, positive.rate)) + geom_line(color="red") + geom_point(color="blue")
+ggplot(corona19, aes(date, reproduction.rate)) + geom_line(color="red") + geom_point(color="blue")
+ggplot(corona19, aes(date, people_fully_vaccinated)) + geom_line(color="red") + geom_point(color="blue")
+
+corona19_new <- read.csv("corona19_new.csv", stringsAsFactors = F)
+corona19_new$date <- as.Date(corona19_new$date)
+ggplot(corona19_new, aes(date, number, color = type)) + geom_line() + geom_point()
