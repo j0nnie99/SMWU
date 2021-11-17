@@ -13,3 +13,19 @@ library(mapproj)
 install.packages("ggiraphExtra")
 library(ggiraphExtra)
 ggChoropleth(data = crime, aes(fill=Murder, map_id=state), map = states_map, interactive = T)
+
+install.packages("stringi")
+library(stringi)
+install.packages("devtools")
+library(devtools)
+install.packages("usethis")
+install.packages("Rcpp", dependencies = TRUE)
+devtools::install_github("cardiomoon/kormaps2014")
+library(kormaps201)
+
+
+install.packages("plotly")
+library(plotly)
+library(ggplot2)
+
+ggplot(data = mpg, aes(displ, highway, col = drv)) + geom_point()
