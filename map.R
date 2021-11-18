@@ -28,4 +28,7 @@ install.packages("plotly")
 library(plotly)
 library(ggplot2)
 
-ggplot(data = mpg, aes(displ, highway, col = drv)) + geom_point()
+p1 <- ggplot(data = mpg, aes(displ, highway, col = drv)) + geom_point()
+ggplotly(p1)
+
+
