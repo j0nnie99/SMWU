@@ -31,4 +31,9 @@ library(ggplot2)
 p1 <- ggplot(data = mpg, aes(displ, highway, col = drv)) + geom_point()
 ggplotly(p1)
 
+p2 <- ggplot(data = mpg, aes(class, fill=fuel)) + geom_bar(position = "dodge")
+ggplotly(p2)
+
+p3 <- ggplot(data = mpg, aes(class, fill = fuel)) + geom_bar(position = "dodge")
+ggplotly(p3)
 
