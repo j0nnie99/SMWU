@@ -11,3 +11,23 @@ head(moon)
 
 moon <- as_tibble(moon) #tibble로 변환
 moon
+
+install.packages("tidytext")
+library(tidytext)
+word_space <- moon %>% unnest_tokens(input = value, output = word, token = "words")
+
+word_space <- word_space %>% count(word, sort = T)
+word_space <- word_space %>% filter(str_count(word) > 1)
+
+top20 <- word_space %>% head(20)
+library(ggplot2)
+
+#맥북 한글 처리용
+install.packages("extrafont")
+library(extrafont)
+font_import()
+library(ggplot2)
+theme_set(theme_grey(base_family="AppleGothic"))
+###∂
+
+ggplot(top20, aes(reorder(word, -n), n, fill = word)) + geom_bar(stat = "identity") + geom_text(aes(label = n ), hjust = -0.3) + labs(title = "문재인 출마 연설문 단어 빈도") + theme(title = element_text(size=12))
