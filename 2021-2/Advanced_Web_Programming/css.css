@@ -1,0 +1,14 @@
+﻿News { background-color : rgb(11, 11, 64); color: rgb(238, 238, 238); font-family: "나눔명조"; }
+
+Info { display: block; margin: 10px; color: light}
+Title { font-family: "나눔명조", "HY수평선B"; display : block; margin: 3%; margin-left:12%; margin-right:11%; text-align: center; font-size: x-large; font-weight: bolder;}
+Title MainTitle { display:block; margin-top:5%;}
+Title SubTitle { display:block; margin-top:1%; font-size:medium; font-style:italic; background-color: gray;}
+
+Info Writer Name {display: block; text-align: right; margin-right:7%; margin-bottom: 2%; }
+Info UploadTime {display: block; margin-left:10%; text-decoration: underline;}
+Info UploadTime Date {display: block; margin-right:8%}
+Info UploadTime Time {display: block; margin-right:8%;}
+UploadTime { display: block; margin: -15px; margin-bottom: 5px; text-align: right;}
+
+Text Paragraph { padding:1%; font-family: "나눔명조"; margin-left:7%; margin-right:7%; display: block; background-color: rgb(238, 238, 238); color: rgb(11, 11, 64)}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified" >
+
+
+<xs:element name="News"> <!--News-->
+    <xs:complexType> <!--Article-->
+        <xs:sequence name="Info"> <!--Info-->
+            <xs:attribute name="url" use="required"/> 
+            <xs:element name="Publisher" type="xs:string"/> 
+            <xs:element type="dateType"/> 
+            <xs:element name="Category" type="xs:string"/> 
+        </xs:sequence> 
+        <xs:element name="Title" type="xs:string"/> 
+        <xs:sequence> <!--Content-->
+            <xs:attribute name="image" use="optional"/> 
+            <xs:element name="Sumaary" type="xs:string"/> 
+        </xs:sequence>
+    </xs:complexType>
+</xs:element>
+
+<!--type정의-->>
+<xs:sequence name="dateType">
+    <xs:simpleType>
+            <xs:list>
+                <element name="Year">
+                <simpleType>
+                    <restriction base="nonNegativeInteger"/>
+                </simpleType>
+                </element>
+
+                <element name="Month">
+                <simpleType>
+                    <restriction base="nonNegativeInteger">
+                            <minExclusive value="1"/>                    
+                            <maxExclusive value="12"/>
+                    </restriction>
+                </simpleType>
+                </element>
+
+                <element name="Day">
+                <simpleType>
+                    <restriction base="nonNegativeInteger">
+                            <minExclusive value="1"/>                    
+                            <maxExclusive value="31"/>
+                    </restriction>
+                </simpleType>
+                </element>
+            </xs:list>
+        </xs:simpleType>
+</xs:sequence>

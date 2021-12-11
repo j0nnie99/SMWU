@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="css.css"?>
+<News 
+         xmlns="http://mm.sookmyung.ac.kr/xml/medical"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="medical.xsd">
+
+    <Title>
+        <MainTitle> [속보] 다음달 백신 '부스터 샷' 시작… 고령층, 의료진 등 대상 </MainTitle>
+    </Title>
+    
+    <Info category="4차산업">
+        <Writer email="spring@asiae.co.kr">
+            <Name>
+                <LName> 이 </LName>
+                <FName> 춘희 </FName>
+            </Name>
+        </Writer>
+        <UploadTime>
+            <Date>
+                <Year> 2021 </Year>
+                <Month> 09 </Month>
+                <Day> 27 </Day>
+            </Date>
+            <Time>
+                <Hour> 14 </Hour>
+                <Minute> 10 </Minute>
+            </Time>
+        </UploadTime>
+        <Copyright company="아시아경제" />
+        <Location url="https://view.asiae.co.kr/article/2021092711564216959"/>
+    </Info>
+
+    <Content image="https://cphoto.asiae.co.kr/listimglink/1/2021092709485542799_1632703734.jpg">
+        <Text> 
+            <Paragraph> 10월부터 60세 이상 고령층, 면역저하자, 병원급 이상 의료기관 종사자 등을 대상으로 한 코로나19 백신 추가 접종('부스터 샷')이 시작된다. 코로나19 예방접종 대응추진단은 이 같은 내용을 담은 '코로나19 예방접종 4분기 시행계획'을 27일 발표했다. 앞서 지난달 25일 예방접종전문위원회가 기본접종 완료 6개월 이후에 추가접종을 시행할 것을 권고한 데 따른 것이다.</Paragraph>
+            <Paragraph> 부스터 샷은 다음달부터 기본 접종을 완료한 후 6개월이 지난 60세 이상 고령층, 병원급 이상 의료기관 종사자(코로나19 치료병원 포함), 감염취약시설 등 고위험군을 대상으로 우선 시행된다. 면역저하자의 경우 기본 접종 후 2개월이 지나면 6개월이 지나지 않았더라도 부스터 샷 우선시행 대상에 포함된다. 접종 백신은 메신저 리보핵산(mRNA) 백신이다.</Paragraph>
+            <Paragraph> 60세 이상 고령층 및 감염취약시설 입소자 및 종사자 등 그 외 고위험군은 다음달 5일부터 사전예약을 실시한다. 이후 다음달 25일 접종이 시작된다.</Paragraph>
+            <Paragraph> 코로나19 치료병원 종사자 6만명, 요양병원·시설의 입원·입소·종사자 50만명 및 병원급 이상 의료기관 종사자 34만명은 앞서 기본 접종과 유사하게 의료기관 자체접종 및 방문접종을 통해 진행된다. 사전 조사를 통해 희망자 수요를 파악한 후 필요한 백신 물량을 배송해 진행된다. 코로나19 치료병원은 다음달 12일부터, 요양병원·시설은 11월10일, 병원급 이상 의료기관은 11월15일부터 각각 접종이 시작된다.</Paragraph>
+            <Paragraph> 면역저하자 대상 부스터 샷 접종은 다음달 18일부터 사전예약을 거쳐 11월1일부터 시작된다. 급성백혈병, 면역 억제 치료 중인 환자 등 면역 형성이 어려운 18세 이상 성인이 대상이다. 추진단은 이 같은 1단계 부스터 샷 접종 후, 2단계로 사회필수인력을 포함한 일반 국민 대상 추가접종 세부방안을 마련할 방침이다.</Paragraph>
+        </Text>
+    </Content>
+</News>

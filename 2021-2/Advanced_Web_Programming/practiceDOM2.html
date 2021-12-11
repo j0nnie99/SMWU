@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>practice DOM #6(b)</title>
+</head>
+
+<body>
+    <script language="Javascript">
+
+        var xdoc = new ActiveXObject("Msxml.DOMDocument");
+
+        function xload0(filename) {
+            xdoc.async = false;
+            xdoc.load(filename);
+            var xroot = xdoc.documentElement;
+            if (xdoc.parseError.reason)
+                alert("에러 위치 : " + xdoc.parseError.line + "번째 라인 " + xdoc.parseError.linepos + "번째 문자\n\n에러 이유 : " + xdoc.parseError.reason);
+            alert("파일 이름은 " + filename + "이고,\n" + "루트 엘리먼트 이름은 " + xroot.nodeName + "입니다");
+        }
+
+        function searchTitle(filename) {
+            xdoc.async = false;
+            xdoc.load(filename);
+            var xroot = xdoc.documentElement;
+            var curr = xroot.firstChild.nextSibling;
+            var title = curr.selectSingleNode("Title");
+            alert("검색 결과 : " + title.text)
+        }
+
+        function numberofArticle(filename) {
+            xdoc.async = false;
+            xdoc.load(filename);
+            var xroot = xdoc.documentElement;
+            alert("뉴스 개수 : " + xroot.childNodes.length);
+        }
+
+        function liseNodename(filename) {
+            xdoc.async = false;
+            xdoc.load(filename);
+            var xroot = xdoc.documentElement;
+            var curr = xroot.firstChild;
+            alert("뉴스목록 노드의 이름은 : " + curr.nodeName + " 입니다.");
+        }
+
+        function listNodechilds(filename) {
+            xdoc.async = false;
+            xdoc.load(filename);
+            var xroot = xdoc.documentElement;
+            var parent = xroot.firstChild;
+            var children = parent.childNodes;
+            var result = "(";
+            for (i = 0; i < children.length - 1; i++) {
+                result = result + children.item(i).nodeName + ", ";
+            }
+            result = result + children.item(children.length - 1).nodeName + ")";
+            alert("뉴스목록 노드의 구조 : \n\n<" + parent.nodeName + ">\n" + result);
+        }
+    </script>
+
+
+    <h3> 1. 파일을 읽어서 루트엘리먼트의 이름을 확인한다. </h3>
+    <input type="button" value="문서읽기" onClick="xload0('news_2.xml')" />
+
+    <h3> 2. 로드되어 있는 파일에서 뉴스 정보를 읽어온다. </h3>
+    <input type="button" value="검색1" onClick="searchTitle('news_2.xml')" />
+    <input type="button" value="검색2" onClick="numberofArticle('news_2.xml')" />
+
+    <h3> 3. 로드되어 있는 파일에서 뉴스요약 노드의 구조를 확인한다. </h3>
+    <input type="button" value="뉴스목록 노드명" onClick="liseNodename('news_2.xml')" />
+    <input type="button" value="뉴스목록 구조" onClick="listNodechilds('news_2.xml')" />
+
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="kr">
+
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <style>
+        .on {
+            background-color: cyan;
+        }
+    </style>
+    <script>
+
+        $(function(){
+            var $checked = $(".checked");
+            $checked.click(function(){
+                $(this).toggleClass('on');
+            })
+        })
+
+        $('.box1').click(function () {
+            var id_check = $(this).attr("id");
+            alert(id_check);
+        });
+
+        function getID(){
+            var tagId = $(this).attr('id');
+            alert(tagId);
+        }
+
+        function clear_all_bg() {
+            $("#box1, #box2, #box3").css("background-color", "white");
+        }
+
+        function clear_background_color() {
+            $("#box0").css("background-color", "white");
+        }
+
+        function bg_red() {
+            $("#box0").css("background-color", "red");
+        }
+
+        function bg_green() {
+            $("#box0").css("background-color", "green");
+        }
+
+        function bg_blue() {
+            $("#box0").css("background-color", "blue");
+        }
+
+        function bg_cyan() {
+            $("#box0").css("background-color", "cyan");
+        }
+
+        function bg_magenta() {
+            $("#box0").css("background-color", "magenta");
+        }
+
+        function bg_yellow() {
+            $("#box0").css("background-color", "yellow");
+        }
+
+    </script>
+
+    <h1>1. 박스의 색상 선택하기 </h1>
+    <a onclick='bg_red()'>Red</a>, <a onclick='bg_green()'>Green</a>, <a onclick='bg_blue()'>Blue</a>,
+    <a onclick='bg_cyan()'>Cyan</a>, <a onclick='bg_magenta()'>Magenta</a>, <a onclick='bg_yellow()'>Yellow</a>
+
+    <div id="box0" style='width:200px;height:150px;border:1px solid black; background-color:white;'>Box 1</div>
+    <br>
+    <button onclick='clear_background_color()'>색상 지우기</button>
+
+    <hr>
+
+    <h1>2. 박스 3개의 색상 선택하여 비교하기 </h1>
+
+    <p>
+        * 색상을 바꿀 박스 번호를 선택하시오 : ( <a onclick="getID()" id="box1">1</a> ), ( 2 ), ( 3 ) <br />
+        * 박스의 색상을 선택하시오 : Red, Green, Blue, Cyan, Magenta, Yellow
+
+    </p>
+
+    <div id="box1" style='float:left;width:100px;height:50px;border:1px solid black; background-color:red;'>Box 1</div>
+    <div id="box2" style='float:left;width:100px;height:50px;border:1px solid black; background-color:green;'>Box 2</div>
+    <div id="box3" style='float:left; width:100px;height:50px;border:1px solid black; background-color:blue;'>Box 3</div>
+    <br><br><br><br>
+    <button onclick='clear_all_bg()'>색상 지우기</button>
+    <br><br>
+    <hr>
+
+    <h1>3. 원하는 색상의 박스를 추가하기 (최대 3개) </h1>
+    <span>
+        <div id="checked" style='float:left; width:150px;height:100px;border:1px solid black;'><button>모두 삭제</button></div>
+        <div id="checked" style='float:left; width:150px;height:100px;border:1px solid black; background-color:cyan;'>Box 1<br><button>삭제</button></div>
+        <div id="checked" style='float:left; width:150px;height:100px;border:1px solid black; background-color:magenta;'>Box 2 <br><button>삭제</button></div>
+        <div id="checked" style='float:left; width:150px;height:100px;border:1px solid black; background-color:yellow;'>Box 3<br><button>삭제</button></div>
+
+        </span>
+
+</body>
+
+</html>

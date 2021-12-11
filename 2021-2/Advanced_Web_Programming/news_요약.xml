@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    info(sequence) - 신문사(숙명신문), 날짜, 카테고리(주제), URL
+    title - 메인타이틀
+    content - 본문, 이미지
+
+-->
+
+<News
+    xmlns="http://mm.sookmyung.ac.kr/xml"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://mm.sookmyung.ac.kr/xml
+    schema_2.xsd">
+  
+    <Article>
+        <Info url="https://view.asiae.co.kr/article/2021092711564216959">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>10</Month>
+                <Day>05</Day>
+            </Date>
+            <Category>의료</Category>
+        </Info>
+        
+        <Title>재활의료기관 15곳 취소 위기...환자 내쫓아야할 판</Title>
+
+        <Content image="http://pds.medicaltimes.com/NewsPhoto/202110/1143288_1.jpg">
+            <Summary>
+                올해 지정된 재활의료기관 19곳 중 15곳이 코로나 사태와 맞물려 회복기 재활환자 40% 기준 미달로 지정 취소 위기에 봉착했다. 재활의료기관들은 정부에 회복기 재활치료 대상군 확대 등 제도 개선을 요청하고 나섰다.
+                메디칼타임즈 취재결과, 보건복지부와 재활의료기관협회는 최근 첫 온라인 간담회를 갖고 재활의료 현안을 논의한 것으로 확인됐다.
+            </Summary>
+        </Content>
+    </Article>
+
+    <Article>
+        <Info url="https://view.asiae.co.kr/article/2021092711564216959">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>27</Day>
+            </Date>
+            <Category>의료</Category>
+        </Info>
+        
+        <Title>[속보] 다음달 백신 '부스터 샷' 시작… 고령층, 의료진 등 대상</Title>
+
+        <Content image="">
+            <Summary>
+                10월부터 60세 이상 고령층, 면역저하자, 병원급 이상 의료기관 종사자 등을 대상으로 한 코로나19 백신 추가 접종('부스터 샷')이 시작된다. 코로나19 예방접종 대응추진단은 이 같은 내용을 담은 '코로나19 예방접종 4분기 시행계획'을 27일 발표했다. 앞서 지난달 25일 예방접종전문위원회가 기본접종 완료 6개월 이후에 추가접종을 시행할 것을 권고한 데 따른 것이다.
+            </Summary>
+        </Content>
+    </Article>
+
+     <Article>
+        <Info url="https://news.naver.com/main/read.naver?mode=LSD&#38;mid=shm&#38;sid1=105&#38;oid=018&#38;aid=0005044724">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>26</Day>
+            </Date>
+            <Category>경제</Category>
+        </Info>
+        
+        <Title>아이폰·갤럭시 대격돌에 중고폰 시장도 덩달아 호황</Title>
+
+        <Content image="https://imgnews.pstatic.net/image/018/2021/09/26/0005044724_001_20210926042403659.jpg?type=w647">
+            <Summary>
+            차세대 폼팩터를 내세운 갤럭시 Z 시리즈가 선전하는 가운데 지난 15일 아이폰13 시리즈가 공개되며 중고폰 시장도 덩달아 활기를 띠고 있다.
+            </Summary>
+        </Content>
+    </Article>
+
+    <Article>
+        <Info url="https://news.naver.com/main/read.naver?mode=LSD&#38;mid=shm&#38;sid1=101&#38;oid=277&#38;aid=0004973967">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>26</Day>
+            </Date>
+            <Category>경제</Category>
+        </Info>
+        
+        <Title>기대감 키우는 토스뱅크, 치열한 '인뱅 삼국지' 예고</Title>
+
+        <Content image="https://imgnews.pstatic.net/image/277/2021/09/26/0004973967_001_20210926102416723.jpg?type=w647">
+            <Summary>신용대출, 금리 2%후반·한도 2억 예고 수신상품 매력적, 관련업계 인재도 합류
+            </Summary>
+        </Content>
+    </Article>
+
+    <Article>
+        <Info url="https://www.hankookilbo.com/News/Read/A2021092310280003643?did=NA">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>26</Day>
+            </Date>
+            <Category>OTT</Category>
+        </Info>
+        
+        <Title>"벌써 국내 OTT 업계 5위" 후발주자 꼬리표 뗀 쿠팡플레이</Title>
+
+        <Content image="https://newsimg.hankookilbo.com/cms/articlerelease/2021/09/23/ae1cc89c-b9e4-4bbd-b79e-1981d251478a.jpg">
+            <Summary>
+            국내 OTT로는 후발주자 격인 쿠팡플레이가 심상치 않다. 지난해 2020년 12월 첫 서비스를 시작한 이후 'SNL... 뒤이어 웨이브, 티빙, U+모바일tv 순서로 쿠팡플레이...
+            </Summary>
+        </Content>
+    </Article>
+
+    <Article>
+        <Info url="http://www.digitaltoday.co.kr/news/articleView.html?idxno=416503">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>09</Day>
+            </Date>
+            <Category>OTT</Category>
+        </Info>
+        
+        <Title>스포츠 중계 힘주는 쿠팡플레이... 3년간 NFL 경기 생중</Title>
+
+        <Content image="hthttps://cdn.digitaltoday.co.kr/news/photo/202109/416503_408853_5927.jpg">
+            <Summary>
+            매년 2월 열리는 미국 최대 스포츠 축제인 슈퍼볼 역시 쿠팡플레이에서 3년간 생중계할 예정이다. 쿠팡플레이는 스포츠 콘텐츠 강화에 힘을 싣고 있다. NFL뿐 아니...
+            </Summary>
+        </Content>
+    </Article>
+
+    <Article>
+        <Info url="http://ch.yes24.com/Article/View/45829">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day> 08</Day>
+            </Date>
+            <Category>도서 </Category>
+        </Info>
+        
+        <Title> 내 마음의 목소리 『일기시대』</Title>
+
+        <Content image="http://image.yes24.com/images/chyes24/froala/0/45829/40172.jpg">
+            <Summary>
+            저자의 한 줄 리뷰 : 일기를 쓰지 않은 날은 묘한 죄책감과 불편함을 느끼며 잠이 들고, 다음날 아침이면 머릿속으로 굳게 다짐하곤 한다. (2021.09.08)
+            </Summary>
+        </Content>
+    </Article>
+  
+    <Article>
+        <Info url="http://ch.yes24.com/Article/View/45553">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>08</Month>
+                <Day> 06</Day>
+            </Date>
+            <Category> 도서</Category>
+        </Info>
+        
+        <Title>나도 이런 친구가 있었으면 좋겠다 - 『익명의 독서 중독자들』</Title>
+
+        <Content image="http://image.yes24.com/images/chyes24/froala/0/45553/37456.jpg">
+            <Summary>
+             저자의 한 줄 리뷰 : 인문사회과학서의 근엄하고 오롯한 세계로부터 이런 정도의 농담을 끄집어낼 수 있다니 가히 천재의 영역이다. (2021.08.06)
+            </Summary>
+        </Content>
+    </Article>
+    
+    <Article>
+        <Info url="http://digitalchosun.dizzo.com/site/data/html_dir/2021/10/19/2021101980027.html">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day> 19</Day>
+            </Date>
+            <Category>영화</Category>
+        </Info>
+        
+        <Title>오징어게임→버추얼 인플루언서·웹툰 등 ‘재미와 가치’ 더해 MZ세대 공략</Title>
+
+        <Content image="http://digitalchosun.dizzo.com/site/data/img_dir/2021/10/19/2021101980027_0.jpg">
+            <Summary>
+                최근 콘텐츠·IP 업계가 MZ세대를 위해 다양한 마케팅 공략에 나섰다. 특히, 최근 전세계적으로 화제인 ‘오징어 게임’으로 대표되는 
+                ‘OTT 콘텐츠’, 메타버스 트렌드 속 각광받고 있는 ‘버추얼 인플루언서’ 그리고 K-콘텐츠의 열풍을 이끄는 ‘웹툰’ 등 인기를 얻고 있다.
+            </Summary>
+        </Content>
+    </Article>
+  
+    <Article>
+        <Info url="http://m.cine21.com/news/view/?mag_id=96847">
+            <Publisher>숙명뉴스</Publisher>
+            <Date>
+                <Year>2021</Year>
+                <Month>09</Month>
+                <Day>25</Day>
+            </Date>
+            <Category>영화</Category>
+        </Info>
+        
+        <Title>연말 집콕하면서 볼만한 OTT 추천작</Title>
+
+        <Content image="http://digitalchosun.dizzo.com/site/data/img_dir/2021/10/19/2021101980027_0.jpg">
+            <Summary>
+            살육호텔스릴러, 핵폭박 후 페허가 된 세계. 절망에 빠진 시민들을 위해 호텔에서 작은 연극이 열린다.  
+            </Summary>
+        </Content>
+    </Article>
+</News>
