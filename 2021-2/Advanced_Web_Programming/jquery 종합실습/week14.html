@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <meta charset="utf-8">
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script>
+            $(function(){
+                $.ajax({
+                    url: 'news.xml',
+                    type: 'GET',
+                    dataType: 'xml',
+                    error: function(xhr) {alert("파일 로딩 에러 : "+xhr.statusText);},
+                    success: function(result) {
+                        newsdoc = result;
+                        news_root = result.documentElement;
+                        var all_article = "";
+                        $(newsdoc).find("Article").each(function(){
+                            pic = $(this).find("Content").attr("image");
+                            piclink = "<img src="+pic+" width=40% height=40%>";
+                            all_article += "<H1><a href="+$(this).find("Info").attr("url")+" target='blank'>"
+                                +$(this).find("Title").text()+"</a></H1><p>"+$(this).find("Year").text()+ "년 "+$(this).find("Month").text()+ "월 "+$(this).find("Day").text()+ "일"+
+                                "</p><p>"+$(this).find("Summary").text()+"</p>"+piclink + "<hr/>";
+                        });
+                        $("#news_list").html(all_article);                    
+                    }
+                });
+            });
+
+        </script>
+        <style>
+            div{text-align : center}
+        </style>
+    </HEAD>
+    <BODY>
+        <H3>뉴스 기사 자세히 보기</H3>
+        <div id = "news_list"></div>
+    </BODY>
+</HTML>
